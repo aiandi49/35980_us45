@@ -906,6 +906,213 @@
 
   /* ═══ CURSOR HINT ON IMAGE ZONES ═══ */
   .upload-zone.has-image { cursor: zoom-in; }
+
+  /* ═══════════════════════════════════════
+     MOBILE RESPONSIVE — TABLET (≤900px)
+  ═══════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .hero-top { padding: 36px 32px 24px; text-align: center; }
+    .hero h1 { font-size: 48px; }
+    .hero-tagline { margin: 0 auto; }
+    .hero-stats-bar { padding: 0 32px; flex-wrap: wrap; }
+    .hstat { flex: 1 1 33%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 16px; text-align: center; }
+
+    .accent-bar { padding: 10px 32px; gap: 8px; justify-content: center; text-align: center; }
+
+    .page { padding: 40px 32px; }
+
+    .section-head { gap: 14px; }
+    .sec-num { font-size: 40px; }
+    .sec-title { font-size: 24px; }
+
+    .spec-strip { grid-template-columns: 1fr 1fr; }
+    .ss-item { text-align: center; }
+    .ss-item:nth-child(2) { border-right: none; }
+    .ss-item:nth-child(3) { border-top: 1px solid var(--border); }
+    .ss-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+
+    .media-grid.mg-3 { grid-template-columns: 1fr 1fr; }
+    .media-grid.mg-2 { grid-template-columns: 1fr; }
+
+    .site-plan-wrap { grid-template-columns: 1fr; }
+
+    .demo-strip { grid-template-columns: 1fr; gap: 0; }
+    .demo-card { border-bottom: 1px solid var(--border); }
+
+    .contact-footer { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 28px 32px; }
+    .cf-contacts { flex-direction: column; gap: 20px; align-items: center; }
+
+    /* Coverage */
+    .coverage-section { padding: 60px 32px; }
+    .coverage-headline { font-size: 52px; }
+    .coverage-grid { gap: 18px; }
+    .coverage-city-img { width: 76px; height: 76px; }
+  }
+
+  /* ═══════════════════════════════════════
+     MOBILE RESPONSIVE — PHONE (≤600px)
+  ═══════════════════════════════════════ */
+  @media (max-width: 600px) {
+
+    /* ── HERO: center everything ── */
+    .hero-top {
+      padding: 28px 20px 20px;
+      text-align: center;
+    }
+    .hero-eyebrow { text-align: center; }
+    .hero h1 { font-size: 36px; letter-spacing: 1px; text-align: center; }
+    .hero-tagline { font-size: 14px; text-align: center; max-width: 100%; }
+    .hero-stats-bar { padding: 0; flex-wrap: wrap; }
+    .hstat {
+      flex: 1 1 50%;
+      padding: 14px 12px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .hstat:nth-child(even) { border-right: none; }
+    .hstat-label { text-align: center; }
+    .hstat-value { font-size: 15px; text-align: center; }
+
+    /* ── ACCENT BAR ── */
+    .accent-bar {
+      padding: 12px 20px;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+    .accent-bar span { font-size: 11px; }
+    .accent-bar .dot { display: none; }
+
+    /* ── PAGE ── */
+    .page { padding: 32px 20px; }
+
+    /* ── SECTION HEADERS: centered ── */
+    .section-head {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+      padding-bottom: 14px;
+    }
+    .sec-num { font-size: 32px; line-height: 1; }
+    .sec-title { font-size: 21px; text-align: center; }
+    .sec-sub { text-align: center; }
+    section { margin-bottom: 48px; }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .toolbar-hint { text-align: center; }
+
+    /* ── SPEC STRIP ── */
+    .spec-strip { grid-template-columns: 1fr 1fr; border-radius: 10px; }
+    .ss-item { padding: 14px 16px; text-align: center; }
+    .ss-val { font-size: 15px; }
+
+    /* ── ALL MEDIA GRIDS collapse to 1 col ── */
+    .media-grid.mg-3,
+    .media-grid.mg-2 { grid-template-columns: 1fr; }
+
+    /* ── IMAGE / VIDEO CARDS ── */
+    .media-card-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      padding: 14px 16px;
+    }
+    .mc-title { text-align: center; flex: unset; }
+
+    .media-caption {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .caption-text { text-align: center; }
+    .caption-swap { width: 100%; text-align: center; padding: 8px 14px; font-size: 12px; }
+
+    /* ── FEATURED HERO RENDER ── */
+    .hero-render-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      padding: 14px 16px;
+    }
+    .hrh-title { font-size: 16px; text-align: center; }
+    .hrh-badge { align-self: center; }
+
+    /* ── SITE PLAN ── */
+    .site-plan-wrap { grid-template-columns: 1fr; }
+    .site-plan-notes { padding: 18px; text-align: center; }
+    .spn-title { text-align: center; }
+    .lot-chip { justify-content: center; }
+    .spn-note { text-align: center; }
+
+    /* ── DEMOGRAPHICS ── */
+    .demo-strip { grid-template-columns: 1fr; }
+    .demo-card { padding: 16px 18px; text-align: center; }
+    .demo-radius { text-align: center; }
+    .demo-row { justify-content: space-between; }
+
+    /* ── CONTACT FOOTER: center everything ── */
+    .contact-footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px 20px;
+      gap: 24px;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    .cf-left { text-align: center; }
+    .cf-label { text-align: center; }
+    .cf-property { font-size: 24px; text-align: center; }
+    .cf-price { text-align: center; }
+    .cf-contacts { flex-direction: column; gap: 20px; align-items: center; }
+    .cf-person { text-align: center; }
+    .cf-logo { font-size: 28px; text-align: center; }
+
+    /* ── COVERAGE ── */
+    .coverage-section { padding: 52px 20px 48px; }
+    .coverage-eyebrow { font-size: 10px; letter-spacing: 3px; }
+    .coverage-headline { font-size: 40px; letter-spacing: 2px; }
+    .coverage-subline { font-size: 14px; margin-bottom: 36px; }
+    .coverage-brand-img { width: 110px; height: 110px; border-radius: 12px; }
+    .coverage-brand-name { font-size: 22px; letter-spacing: 4px; }
+    .coverage-brand-role { font-size: 13px; }
+    .coverage-divider { margin-bottom: 32px; }
+    .coverage-divider-label { font-size: 9px; letter-spacing: 2px; }
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      justify-items: center;
+    }
+    .coverage-city-img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 8px; }
+    .coverage-city-name { font-size: 8px; letter-spacing: 1.5px; }
+  }
+
+  /* ═══════════════════════════════════════
+     MOBILE RESPONSIVE — SMALL (≤380px)
+  ═══════════════════════════════════════ */
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 30px; }
+    .hstat { flex: 1 1 100%; border-right: none; }
+    .coverage-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .coverage-headline { font-size: 34px; }
+    .spec-strip { grid-template-columns: 1fr; }
+    .ss-item { border-right: none; border-bottom: 1px solid var(--border); }
+  }
 </style>
 </head>
 <body>
