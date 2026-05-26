@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>35980 US-45 · Development Opportunity · Lindenhurst, IL</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy: #0a1628;
+    --navy2: #122040;
+    --blue: #1a4a8a;
+    --accent: #e8b84b;
+    --accent2: #4fc3f7;
+    --light: #f0f3f8;
+    --white: #ffffff;
+    --text: #1e2d42;
+    --muted: #6b7f99;
+    --border: #dce4f0;
+    --card: #ffffff;
+    --upload-bg: #f7f9fc;
+    --upload-border: #c8d6e8;
+    --upload-hover: #e8f0fa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-top {
+    padding: 48px 64px 32px;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 68px;
+    letter-spacing: 2px;
+    line-height: 0.95;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero-tagline {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    max-width: 500px;
+  }
+  .hero-stats-bar {
+    background: rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    padding: 0 64px;
+  }
+  .hstat {
+    flex: 1;
+    padding: 20px 0;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+  .hstat:first-child { padding-left: 0; }
+  .hstat:last-child { border-right: none; }
+  .hstat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 4px;
+  }
+  .hstat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+
+  /* ═══ ACCENT BAR ═══ */
+  .accent-bar {
+    background: var(--accent);
+    padding: 13px 64px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .accent-bar span {
+    font-size: 12.5px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .accent-bar .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: rgba(10,22,40,0.35);
+  }
+
+  /* ═══ LAYOUT ═══ */
+  .page { max-width: 1280px; margin: 0 auto; padding: 56px 64px; }
+
+  /* ═══ SECTION HEADERS ═══ */
+  .section-head {
+    margin-bottom: 36px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+  }
+  .sec-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.8;
+  }
+  .sec-info {}
+  .sec-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .sec-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  section { margin-bottom: 72px; }
+
+  /* ═══ IMAGE CONTAINERS ═══ */
+  .media-grid {
+    display: grid;
+    gap: 24px;
+  }
+  .mg-2 { grid-template-columns: 1fr 1fr; }
+  .mg-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .mg-1 { grid-template-columns: 1fr; }
+
+  .media-card {
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .media-card-header {
+    background: var(--navy2);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .mc-title {
+    font-weight: 600;
+    font-size: 13px;
+    color: white;
+    flex: 1;
+    line-height: 1.3;
+  }
+  .mc-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .b-aerial  { background: rgba(79,195,247,0.22); color: #4fc3f7; }
+  .b-street  { background: rgba(102,187,106,0.22); color: #66bb6a; }
+  .b-render  { background: rgba(232,184,75,0.22); color: var(--accent); }
+  .b-night   { background: rgba(206,147,216,0.22); color: #ce93d8; }
+  .b-interior{ background: rgba(255,138,101,0.22); color: #ff8a65; }
+  .b-concept { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); }
+  .b-video   { background: rgba(239,83,80,0.22); color: #ef9a9a; }
+
+  /* ═══ UPLOAD ZONE (default state when no image) ═══ */
+  .upload-zone {
+    position: relative;
+    min-height: 260px;
+    background: var(--upload-bg);
+    border: 2.5px dashed var(--upload-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    flex: 1;
+  }
+  .upload-zone.tall { min-height: 380px; }
+  .upload-zone.wide { min-height: 320px; }
+  .upload-zone.hero-zone { min-height: 480px; }
+  .upload-zone.video-zone { min-height: 300px; }
+
+  .upload-zone:hover,
+  .upload-zone.drag-over {
+    background: var(--upload-hover);
+    border-color: var(--blue);
+  }
+  .upload-zone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+  .upload-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+  .upload-icon svg {
+    width: 24px; height: 24px;
+    stroke: var(--muted);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .upload-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+  }
+  .upload-sub {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.5;
+    max-width: 220px;
+  }
+  .upload-btn-hint {
+    margin-top: 6px;
+    font-size: 11px;
+    background: var(--navy);
+    color: rgba(255,255,255,0.8);
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ═══ IMAGE PREVIEW STATE ═══ */
+  .upload-zone.has-image {
+    border-style: solid;
+    border-color: var(--border);
+    padding: 0;
+    overflow: hidden;
+  }
+  .upload-zone.has-image .upload-icon,
+  .upload-zone.has-image .upload-label,
+  .upload-zone.has-image .upload-sub,
+  .upload-zone.has-image .upload-btn-hint { display: none; }
+
+  .upload-zone.has-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .upload-zone img { display: none; }
+
+  /* ═══ VIDEO ZONE ═══ */
+  .video-zone {
+    position: relative;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    flex: 1;
+  }
+  .video-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: rgba(239,83,80,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .video-icon svg {
+    width: 28px; height: 28px;
+    fill: #ef9a9a;
+    stroke: none;
+  }
+  .video-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0 24px;
+  }
+  .video-input-wrapper input[type="text"] {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    color: white;
+    text-align: center;
+    outline: none;
+  }
+  .video-input-wrapper input::placeholder { color: rgba(255,255,255,0.4); }
+  .video-input-wrapper input:focus { border-color: rgba(79,195,247,0.6); }
+  .video-embed-btn {
+    background: rgba(79,195,247,0.2);
+    border: 1px solid rgba(79,195,247,0.4);
+    color: #4fc3f7;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 7px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .video-embed-btn:hover { background: rgba(79,195,247,0.3); }
+  .video-label { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7); }
+  .video-sub { font-size: 12px; color: rgba(255,255,255,0.4); text-align: center; }
+
+  .video-zone iframe {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-zone.has-video .video-icon,
+  .video-zone.has-video .video-input-wrapper,
+  .video-zone.has-video .video-label,
+  .video-zone.has-video .video-sub { display: none; }
+  .video-zone.has-video iframe { display: block; }
+
+  /* ═══ CAPTION BAR UNDER IMAGES ═══ */
+  .media-caption {
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    background: white;
+  }
+  .caption-text {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .caption-swap {
+    font-size: 11px;
+    color: var(--blue);
+    font-family: 'DM Mono', monospace;
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #eef3fb;
+    white-space: nowrap;
+  }
+  .caption-swap:hover { background: #d9e5f5; }
+
+  /* ═══ FEATURED / HERO RENDER SLOT ═══ */
+  .hero-render-wrap {
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 56px;
+    background: var(--card);
+  }
+  .hero-render-header {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy2) 100%);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hrh-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: white;
+  }
+  .hrh-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(232,184,75,0.15);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* ═══ SPEC STRIP ═══ */
+  .spec-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .ss-item {
+    background: white;
+    padding: 20px 24px;
+    border-right: 1px solid var(--border);
+  }
+  .ss-item:last-child { border-right: none; }
+  .ss-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 6px;
+  }
+  .ss-val {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .ss-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* ═══ SITE PLAN SLOT ═══ */
+  .site-plan-wrap {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .site-plan-notes {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .spn-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--navy);
+    letter-spacing: 1px;
+  }
+  .lot-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--upload-bg);
+  }
+  .lot-dot {
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .lot-chip-info {}
+  .lot-chip-name { font-size: 13px; font-weight: 600; color: var(--navy); }
+  .lot-chip-detail { font-size: 11px; color: var(--muted); }
+  .spn-note {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.65;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ═══ DEMOGRAPHICS STRIP ═══ */
+  .demo-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 24px;
+    border: 1px solid var(--border);
+  }
+  .demo-card {
+    background: white;
+    padding: 22px 24px;
+  }
+  .demo-radius {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .demo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f4fa;
+    font-size: 13px;
+  }
+  .demo-row:last-child { border-bottom: none; }
+  .demo-key { color: var(--muted); }
+  .demo-val { font-weight: 600; color: var(--navy); }
+
+  /* ═══ CONTACT FOOTER ═══ */
+  .contact-footer {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-top: 56px;
+  }
+  .cf-left {}
+  .cf-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 8px;
+  }
+  .cf-property {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: white;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .cf-price {
+    font-size: 15px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .cf-contacts {
+    display: flex;
+    gap: 40px;
+  }
+  .cf-person {}
+  .cf-name { font-size: 15px; font-weight: 600; color: white; margin-bottom: 4px; }
+  .cf-role { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .cf-contact-item {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2px;
+  }
+  .cf-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: white;
+    background: var(--blue);
+    padding: 10px 20px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  /* ═══ PRINT / EXPORT STRIP ═══ */
+  .toolbar {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .toolbar-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    flex: 1;
+    letter-spacing: 0.5px;
+  }
+  .tbtn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    transition: background 0.15s;
+  }
+  .tbtn:hover { background: var(--upload-bg); }
+  .tbtn.primary {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+  .tbtn.primary:hover { background: var(--navy2); }
+
+  @media print {
+    .toolbar, .caption-swap { display: none; }
+    .upload-zone { border-style: solid; min-height: 200px; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     HERO HEADER
+════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-eyebrow">Development Opportunity · Lake County, Illinois</div>
+    <h1>35980 US-45<br><em>Lindenhurst,</em> IL 60046</h1>
+    <div class="hero-tagline">4.33 Acres at a Signalized Corner — Exceptional Commercial Development Opportunity</div>
+  </div>
+  <div class="hero-stats-bar">
+    <div class="hstat"><div class="hstat-label">Acreage</div><div class="hstat-value">4.33 Acres</div></div>
+    <div class="hstat"><div class="hstat-label">Zoning</div><div class="hstat-value">GC — General Commercial</div></div>
+    <div class="hstat"><div class="hstat-label">Frontage</div><div class="hstat-value">509 ft · Route 45</div></div>
+    <div class="hstat"><div class="hstat-label">Traffic</div><div class="hstat-value">19,900 VPD</div></div>
+    <div class="hstat"><div class="hstat-label">Sale Price</div><div class="hstat-value">$1,600,000</div></div>
+    <div class="hstat"><div class="hstat-label">Taxes (2023)</div><div class="hstat-value">$12,698</div></div>
+  </div>
+</div>
+
+<div class="accent-bar">
+  <span>✓ Stoplight Corner</span><div class="dot"></div>
+  <span>✓ Previously Approved — Gas Station &amp; Car Wash</span><div class="dot"></div>
+  <span>✓ 1 Mile from Gurnee Mills</span><div class="dot"></div>
+  <span>✓ 3-Lot Subdivision Ready</span><div class="dot"></div>
+  <span>✓ 124,461 Population in 5-Mile Radius</span>
+</div>
+
+<!-- ════════════════════════════════════
+     MAIN PAGE
+════════════════════════════════════ -->
+<div class="page">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <span class="toolbar-label">📁 Developer View — Drop rendered images into each container below. Click any zone to upload, or drag &amp; drop.</span>
+    <button class="tbtn" onclick="window.print()">🖨 Print / Export PDF</button>
+    <button class="tbtn primary" onclick="expandAll()">⛶ Expand All Slots</button>
+  </div>
+
+  <!-- ══ FEATURED HERO RENDER ══ -->
+  <div class="hero-render-wrap">
+    <div class="hero-render-header">
+      <span class="hrh-title">Featured Aerial Render — Full Site Overview</span>
+      <span class="hrh-badge">Hero Image</span>
+    </div>
+    <div class="upload-zone hero-zone" id="hero-main" onclick="triggerUpload('hero-main-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'hero-main-input')">
+      <input type="file" id="hero-main-input" accept="image/*,video/mp4,video/webm" onchange="handleFile(this,'hero-main')">
+      <img id="hero-main-img" alt="">
+      <div class="upload-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="upload-label">Hero Aerial Render</div>
+      <div class="upload-sub">Drop your AI-generated aerial image here — this is the cover shot</div>
+      <div class="upload-btn-hint">Click to upload · 1920×1080 recommended</div>
+    </div>
+    <div class="media-caption">
+      <span class="caption-text">4.33-acre signalized corner parcel · US Route 45 &amp; Grand Avenue · Lindenhurst, IL</span>
+      <span class="caption-swap" onclick="triggerUpload('hero-main-input')">↑ Replace Image</span>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 1: AERIAL VIEWS ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">01</div>
+      <div class="sec-info">
+        <div class="sec-title">Aerial &amp; Satellite Views</div>
+        <div class="sec-sub">Existing site conditions and proposed development — overhead perspective</div>
+      </div>
+    </div>
+
+    <div class="media-grid mg-2">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Existing Site — Aerial Overview</span>
+          <span class="mc-badge b-aerial">Aerial</span>
+        </div>
+        <div class="upload-zone wide" id="aerial-1" onclick="triggerUpload('aerial-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-1-input')">
+          <input type="file" id="aerial-1-input" accept="image/*" onchange="handleFile(this,'aerial-1')">
+          <img id="aerial-1-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <div class="upload-label">Aerial — Current Conditions</div>
+          <div class="upload-sub">Straight-down nadir view, parcel outlined</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Vacant 4.33-acre parcel · Route 45 &amp; Grand Ave intersection</span>
+          <span class="caption-swap" onclick="triggerUpload('aerial-1-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Car Wash Development — Aerial Render</span>
+          <span class="mc-badge b-render">Rendered</span>
+        </div>
+        <div class="upload-zone wide" id="aerial-2" onclick="triggerUpload('aerial-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-2-input')">
+          <input type="file" id="aerial-2-input" accept="image/*" onchange="handleFile(this,'aerial-2')">
+          <img id="aerial-2-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="upload-label">Aerial — Lot 1 Car Wash Built Out</div>
+          <div class="upload-sub">Proposed car wash on northern 1.64 acres</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Proposed express tunnel car wash — Lot 1 (1.64 ac)</span>
+          <span class="caption-swap" onclick="triggerUpload('aerial-2-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Full Site Buildout — All 3 Lots Developed</span>
+          <span class="mc-badge b-render">Full Render</span>
+        </div>
+        <div class="upload-zone wide" id="aerial-3" onclick="triggerUpload('aerial-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-3-input')">
+          <input type="file" id="aerial-3-input" accept="image/*" onchange="handleFile(this,'aerial-3')">
+          <img id="aerial-3-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <div class="upload-label">Aerial — Complete 3-Lot Development</div>
+          <div class="upload-sub">Car wash + retail pad + gas station / QSR</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Full buildout scenario — Lots 1, 2 &amp; 3 (4.33 ac total)</span>
+          <span class="caption-swap" onclick="triggerUpload('aerial-3-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Oblique 45° Aerial — Northeast Angle</span>
+          <span class="mc-badge b-aerial">Oblique</span>
+        </div>
+        <div class="upload-zone wide" id="aerial-4" onclick="triggerUpload('aerial-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-4-input')">
+          <input type="file" id="aerial-4-input" accept="image/*" onchange="handleFile(this,'aerial-4')">
+          <img id="aerial-4-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+          <div class="upload-label">Oblique Aerial — 45° Angle</div>
+          <div class="upload-sub">Golden hour, looking southwest toward site</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Oblique perspective showing Route 45 corridor and intersection</span>
+          <span class="caption-swap" onclick="triggerUpload('aerial-4-input')">↑ Replace</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2: STREET LEVEL ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">02</div>
+      <div class="sec-info">
+        <div class="sec-title">Street-Level Hero Renderings</div>
+        <div class="sec-sub">Eye-level photorealistic views from Route 45 and Grand Avenue approaches</div>
+      </div>
+    </div>
+
+    <div class="media-grid mg-2" style="margin-bottom:24px;">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Route 45 Approach — Heading South</span>
+          <span class="mc-badge b-street">Street Level</span>
+        </div>
+        <div class="upload-zone wide" id="street-1" onclick="triggerUpload('street-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-1-input')">
+          <input type="file" id="street-1-input" accept="image/*" onchange="handleFile(this,'street-1')">
+          <img id="street-1-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3"/><rect x="9" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="19" r="1"/><circle cx="20" cy="19" r="1"/></svg></div>
+          <div class="upload-label">Driver View — US Route 45 South</div>
+          <div class="upload-sub">Looking south, car wash on left at intersection</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Approaching the signalized corner from the north on Route 45</span>
+          <span class="caption-swap" onclick="triggerUpload('street-1-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Intersection Corner — Grand Ave &amp; Route 45</span>
+          <span class="mc-badge b-street">Corner View</span>
+        </div>
+        <div class="upload-zone wide" id="street-2" onclick="triggerUpload('street-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-2-input')">
+          <input type="file" id="street-2-input" accept="image/*" onchange="handleFile(this,'street-2')">
+          <img id="street-2-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+          <div class="upload-label">Corner — Stoplight Intersection</div>
+          <div class="upload-sub">Standing at the NE corner, facing southwest</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Stoplight corner — maximum visibility from two arterials</span>
+          <span class="caption-swap" onclick="triggerUpload('street-2-input')">↑ Replace</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="media-grid mg-2">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Grand Avenue Approach — Heading East</span>
+          <span class="mc-badge b-street">Street Level</span>
+        </div>
+        <div class="upload-zone" id="street-3" onclick="triggerUpload('street-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-3-input')">
+          <input type="file" id="street-3-input" accept="image/*" onchange="handleFile(this,'street-3')">
+          <img id="street-3-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div class="upload-label">Grand Ave — Heading East</div>
+          <div class="upload-sub">18,900 VPD approach view</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Eastbound Grand Avenue — landscaped setback along site frontage</span>
+          <span class="caption-swap" onclick="triggerUpload('street-3-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Entry Drive &amp; Pylon Sign — Close-Up</span>
+          <span class="mc-badge b-render">Detail</span>
+        </div>
+        <div class="upload-zone" id="street-4" onclick="triggerUpload('street-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-4-input')">
+          <input type="file" id="street-4-input" accept="image/*" onchange="handleFile(this,'street-4')">
+          <img id="street-4-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+          <div class="upload-label">Pylon Sign &amp; Entry Drive</div>
+          <div class="upload-sub">Landscaped entry, signage detail</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Entry monument signage and drive approach detail</span>
+          <span class="caption-swap" onclick="triggerUpload('street-4-input')">↑ Replace</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 3: CAR WASH RENDERS ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">03</div>
+      <div class="sec-info">
+        <div class="sec-title">Car Wash — Primary Development Renders</div>
+        <div class="sec-sub">Previously approved use · Gas Station + Express Tunnel Car Wash</div>
+      </div>
+    </div>
+
+    <div class="media-grid mg-2" style="margin-bottom:24px;">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Car Wash — Daytime Architectural Hero</span>
+          <span class="mc-badge b-render">Architectural</span>
+        </div>
+        <div class="upload-zone tall" id="cw-1" onclick="triggerUpload('cw-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-1-input')">
+          <input type="file" id="cw-1-input" accept="image/*" onchange="handleFile(this,'cw-1')">
+          <img id="cw-1-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+          <div class="upload-label">Express Car Wash — Daytime Hero</div>
+          <div class="upload-sub">Full facade, vacuum islands, entry arch · bright noon sun</div>
+          <div class="upload-btn-hint">Click to upload · primary marketing shot</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Modern tunnel car wash · Lot 1 (1.64 ac) · 270 ft tunnel building</span>
+          <span class="caption-swap" onclick="triggerUpload('cw-1-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Car Wash — Night Render (LED Lit)</span>
+          <span class="mc-badge b-night">Night</span>
+        </div>
+        <div class="upload-zone tall" id="cw-2" onclick="triggerUpload('cw-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-2-input')">
+          <input type="file" id="cw-2-input" accept="image/*" onchange="handleFile(this,'cw-2')">
+          <img id="cw-2-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+          <div class="upload-label">Car Wash — Night / LED Lit</div>
+          <div class="upload-sub">Twilight, LED accent lighting, glowing tunnel</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Night render — blue &amp; white LED lighting, glowing entry arch</span>
+          <span class="caption-swap" onclick="triggerUpload('cw-2-input')">↑ Replace</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="media-grid mg-2">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Gas Station + Car Wash Combo</span>
+          <span class="mc-badge b-render">Approved Use</span>
+        </div>
+        <div class="upload-zone" id="cw-3" onclick="triggerUpload('cw-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-3-input')">
+          <input type="file" id="cw-3-input" accept="image/*" onchange="handleFile(this,'cw-3')">
+          <img id="cw-3-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+          <div class="upload-label">Gas Station + Car Wash Combo</div>
+          <div class="upload-sub">Combined site — previously approved use by Lindenhurst</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Combined fuel + car wash — previously approved by Village of Lindenhurst</span>
+          <span class="caption-swap" onclick="triggerUpload('cw-3-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Interior Tunnel — Customer Experience</span>
+          <span class="mc-badge b-interior">Interior</span>
+        </div>
+        <div class="upload-zone" id="cw-4" onclick="triggerUpload('cw-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-4-input')">
+          <input type="file" id="cw-4-input" accept="image/*" onchange="handleFile(this,'cw-4')">
+          <img id="cw-4-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="upload-label">Interior — Through the Tunnel</div>
+          <div class="upload-sub">Customer POV inside the wash tunnel</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Interior tunnel experience — LED lighting, foam brushes, water curtains</span>
+          <span class="caption-swap" onclick="triggerUpload('cw-4-input')">↑ Replace</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 4: VIDEO SLOTS ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">04</div>
+      <div class="sec-info">
+        <div class="sec-title">Video &amp; Animated Renders</div>
+        <div class="sec-sub">Paste a YouTube or Vimeo URL, or upload an MP4 fly-through / walkthrough video</div>
+      </div>
+    </div>
+
+    <div class="media-grid mg-2">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Aerial Fly-Through — Development Site</span>
+          <span class="mc-badge b-video">Video</span>
+        </div>
+        <div class="video-zone" id="video-1">
+          <div class="video-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div class="video-label">Aerial Fly-Through</div>
+          <div class="video-sub">Animated drone path over the site</div>
+          <div class="video-input-wrapper">
+            <input type="text" id="video-1-url" placeholder="Paste YouTube / Vimeo URL here…">
+            <button class="video-embed-btn" onclick="embedVideo('video-1','video-1-url','video-1-frame')">▶ Embed Video</button>
+          </div>
+          <iframe id="video-1-frame" allowfullscreen></iframe>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Aerial fly-through animation — site overview with proposed development</span>
+          <span class="caption-swap" onclick="document.getElementById('video-1-url').focus()">↑ Add URL</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Car Wash Walkthrough — Virtual Tour</span>
+          <span class="mc-badge b-video">Video</span>
+        </div>
+        <div class="video-zone" id="video-2">
+          <div class="video-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div class="video-label">Virtual Walkthrough</div>
+          <div class="video-sub">3D walkthrough of proposed car wash</div>
+          <div class="video-input-wrapper">
+            <input type="text" id="video-2-url" placeholder="Paste YouTube / Vimeo URL here…">
+            <button class="video-embed-btn" onclick="embedVideo('video-2','video-2-url','video-2-frame')">▶ Embed Video</button>
+          </div>
+          <iframe id="video-2-frame" allowfullscreen></iframe>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">3D virtual tour — car wash interior and exterior walkthrough</span>
+          <span class="caption-swap" onclick="document.getElementById('video-2-url').focus()">↑ Add URL</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5: ALTERNATIVE PAD SITES ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">05</div>
+      <div class="sec-info">
+        <div class="sec-title">Alternative Development Scenarios</div>
+        <div class="sec-sub">GC Zoning allows multiple commercial uses — Lots 2 &amp; 3 pad site outcomes</div>
+      </div>
+    </div>
+
+    <div class="media-grid mg-3">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">QSR / Drive-Through</span>
+          <span class="mc-badge b-concept">Pad Site</span>
+        </div>
+        <div class="upload-zone" id="alt-1" onclick="triggerUpload('alt-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-1-input')">
+          <input type="file" id="alt-1-input" accept="image/*" onchange="handleFile(this,'alt-1')">
+          <img id="alt-1-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 22"/><path d="M9.7 22H3.1L3.1 16h6.5"/><path d="M21.8 22H15l0-6h6.8"/><path d="M15 22v-6"/></svg></div>
+          <div class="upload-label">Fast Food / QSR</div>
+          <div class="upload-sub">Drive-through lane, Lot 2 or 3</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Lot 2 — 1.44 ac pad site · fast-casual restaurant with drive-through</span>
+          <span class="caption-swap" onclick="triggerUpload('alt-1-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Retail Strip Center</span>
+          <span class="mc-badge b-concept">Pad Site</span>
+        </div>
+        <div class="upload-zone" id="alt-2" onclick="triggerUpload('alt-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-2-input')">
+          <input type="file" id="alt-2-input" accept="image/*" onchange="handleFile(this,'alt-2')">
+          <img id="alt-2-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+          <div class="upload-label">Multi-Tenant Retail Strip</div>
+          <div class="upload-sub">Inline shops, 6,000 sq ft</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Lot 3 — 1.25 ac · inline retail strip center</span>
+          <span class="caption-swap" onclick="triggerUpload('alt-2-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Medical / Urgent Care</span>
+          <span class="mc-badge b-concept">Pad Site</span>
+        </div>
+        <div class="upload-zone" id="alt-3" onclick="triggerUpload('alt-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-3-input')">
+          <input type="file" id="alt-3-input" accept="image/*" onchange="handleFile(this,'alt-3')">
+          <img id="alt-3-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="upload-label">Medical / Urgent Care Clinic</div>
+          <div class="upload-sub">5,000–7,000 sq ft clinic pad</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Urgent care clinic — serves 124k population within 5 miles</span>
+          <span class="caption-swap" onclick="triggerUpload('alt-3-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Auto Parts Retail</span>
+          <span class="mc-badge b-concept">Pad Site</span>
+        </div>
+        <div class="upload-zone" id="alt-4" onclick="triggerUpload('alt-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-4-input')">
+          <input type="file" id="alt-4-input" accept="image/*" onchange="handleFile(this,'alt-4')">
+          <img id="alt-4-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M5.34 17.66l-1.41 1.41M20.49 12h-2M5.51 12h-2M19.07 19.07l-1.41-1.41M5.34 6.34L3.93 4.93M12 20.49v-2M12 5.51v-2"/></svg></div>
+          <div class="upload-label">Auto Parts Retail</div>
+          <div class="upload-sub">Synergistic with car wash use</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Auto parts retail — complementary to car wash on adjacent lot</span>
+          <span class="caption-swap" onclick="triggerUpload('alt-4-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Convenience Store</span>
+          <span class="mc-badge b-concept">Pad Site</span>
+        </div>
+        <div class="upload-zone" id="alt-5" onclick="triggerUpload('alt-5-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-5-input')">
+          <input type="file" id="alt-5-input" accept="image/*" onchange="handleFile(this,'alt-5')">
+          <img id="alt-5-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v2H4z"/><path d="M4 6h16l-2 14H6L4 6z"/></svg></div>
+          <div class="upload-label">Convenience Store Standalone</div>
+          <div class="upload-sub">3,000–4,500 sq ft C-store</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Lot 3 — standalone convenience store with Route 45 visibility</span>
+          <span class="caption-swap" onclick="triggerUpload('alt-5-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Self-Storage Facility</span>
+          <span class="mc-badge b-concept">Pad Site</span>
+        </div>
+        <div class="upload-zone" id="alt-6" onclick="triggerUpload('alt-6-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-6-input')">
+          <input type="file" id="alt-6-input" accept="image/*" onchange="handleFile(this,'alt-6')">
+          <img id="alt-6-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+          <div class="upload-label">Self-Storage Facility</div>
+          <div class="upload-sub">2–3 story climate controlled</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Modern self-storage — high-traffic arterial exposure, Lot 2 or 3</span>
+          <span class="caption-swap" onclick="triggerUpload('alt-6-input')">↑ Replace</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 6: SEASONAL VARIANTS ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">06</div>
+      <div class="sec-info">
+        <div class="sec-title">Seasonal &amp; Atmospheric Variants</div>
+        <div class="sec-sub">Four-season marketing images for campaigns, social media, and print</div>
+      </div>
+    </div>
+
+    <div class="media-grid mg-2">
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Spring — Grand Opening Scene</span>
+          <span class="mc-badge b-render">Spring</span>
+        </div>
+        <div class="upload-zone" id="seas-1" onclick="triggerUpload('seas-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-1-input')">
+          <input type="file" id="seas-1-input" accept="image/*" onchange="handleFile(this,'seas-1')">
+          <img id="seas-1-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M12 12C12 7 7 2 3 5c4 0 9 7 9 7"/><path d="M12 12c0-5 5-10 9-7-4 0-9 7-9 7"/></svg></div>
+          <div class="upload-label">Spring — Opening Day</div>
+          <div class="upload-sub">Cherry blossoms, grand opening banner, queue</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Spring opening — Midwest bloom season, optimistic atmosphere</span>
+          <span class="caption-swap" onclick="triggerUpload('seas-1-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Winter — Snow Scene</span>
+          <span class="mc-badge b-night">Winter</span>
+        </div>
+        <div class="upload-zone" id="seas-2" onclick="triggerUpload('seas-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-2-input')">
+          <input type="file" id="seas-2-input" accept="image/*" onchange="handleFile(this,'seas-2')">
+          <img id="seas-2-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 7l-5 5-5-5"/><path d="M17 17l-5-5-5 5"/></svg></div>
+          <div class="upload-label">Winter — Snow &amp; Steam</div>
+          <div class="upload-sub">Midwest winter, steam from tunnel exit, LED glow</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Winter operations — year-round revenue generation in Midwest climate</span>
+          <span class="caption-swap" onclick="triggerUpload('seas-2-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Sunrise — 7AM Golden Hour</span>
+          <span class="mc-badge b-render">Sunrise</span>
+        </div>
+        <div class="upload-zone" id="seas-3" onclick="triggerUpload('seas-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-3-input')">
+          <input type="file" id="seas-3-input" accept="image/*" onchange="handleFile(this,'seas-3')">
+          <img id="seas-3-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="8 6 12 2 16 6"/></svg></div>
+          <div class="upload-label">Sunrise — Cinematic</div>
+          <div class="upload-sub">Orange sky, commuter traffic, dewy landscape</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Sunrise on Route 45 — cinematic editorial quality render</span>
+          <span class="caption-swap" onclick="triggerUpload('seas-3-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Busy Saturday — Full Queue</span>
+          <span class="mc-badge b-street">Lifestyle</span>
+        </div>
+        <div class="upload-zone" id="seas-4" onclick="triggerUpload('seas-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-4-input')">
+          <input type="file" id="seas-4-input" accept="image/*" onchange="handleFile(this,'seas-4')">
+          <img id="seas-4-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="upload-label">Busy Saturday — Peak Volume</div>
+          <div class="upload-sub">12–15 car queue, families, peak operations</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Peak Saturday operations — demonstrating volume and ROI potential</span>
+          <span class="caption-swap" onclick="triggerUpload('seas-4-input')">↑ Replace</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ SECTION 7: SITE PLAN ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">07</div>
+      <div class="sec-info">
+        <div class="sec-title">Draft Site Plan</div>
+        <div class="sec-sub">Engineered site plan with lot subdivision, setbacks, and car wash layout</div>
+      </div>
+    </div>
+
+    <div class="site-plan-wrap">
+      <div class="media-card" style="flex:1;">
+        <div class="media-card-header">
+          <span class="mc-title">Draft Site Plan — Full Document</span>
+          <span class="mc-badge b-aerial">Site Plan</span>
+        </div>
+        <div class="upload-zone tall" id="siteplan-1" onclick="triggerUpload('siteplan-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'siteplan-1-input')">
+          <input type="file" id="siteplan-1-input" accept="image/*,.pdf" onchange="handleFile(this,'siteplan-1')">
+          <img id="siteplan-1-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div class="upload-label">Upload Site Plan Image</div>
+          <div class="upload-sub">High-res site plan · PDF or PNG · Scale 1" = 30'</div>
+          <div class="upload-btn-hint">Click to upload site plan</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Draft site plan — Scale 1"=30' · Printed on 11×17 · 3-Lot subdivision</span>
+          <span class="caption-swap" onclick="triggerUpload('siteplan-1-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="site-plan-notes">
+        <div class="spn-title">Lot Breakdown</div>
+        <div class="lot-chip">
+          <div class="lot-dot" style="background:#4fc3f7;"></div>
+          <div class="lot-chip-info">
+            <div class="lot-chip-name">Lot 1 — Car Wash</div>
+            <div class="lot-chip-detail">1.64 acres · North portion · Express tunnel car wash + vacuum islands</div>
+          </div>
+        </div>
+        <div class="lot-chip">
+          <div class="lot-dot" style="background:#66bb6a;"></div>
+          <div class="lot-chip-info">
+            <div class="lot-chip-name">Lot 2 — Pad Site</div>
+            <div class="lot-chip-detail">1.44 acres · Center · Restaurant / retail / medical</div>
+          </div>
+        </div>
+        <div class="lot-chip">
+          <div class="lot-dot" style="background:#e8b84b;"></div>
+          <div class="lot-chip-info">
+            <div class="lot-chip-name">Lot 3 — Pad Site</div>
+            <div class="lot-chip-detail">1.25 acres · South · Gas station / convenience / QSR</div>
+          </div>
+        </div>
+        <div class="spn-note">
+          <strong>Setbacks:</strong> 10 ft minimum all sides · 20 ft street-facing setback on Route 45 · 150 ft landscape buffer (ROW) · FEMA Flood Zone AE noted on southern portion · Stormwater management area TBD south lot.
+        </div>
+        <div class="spn-note">
+          <strong>Zoning:</strong> GC – General Commercial (unincorporated Lake County). Annexation into Village of Lindenhurst required. Adjacent parcels zoned CB – Community Business District.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DEMOGRAPHICS ══ -->
+  <section>
+    <div class="section-head">
+      <div class="sec-num">08</div>
+      <div class="sec-info">
+        <div class="sec-title">Demographics &amp; Trade Area</div>
+        <div class="sec-sub">Population and income data surrounding the subject site</div>
+      </div>
+    </div>
+
+    <div class="media-grid mg-2" style="margin-bottom:24px;">
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Demographics Map — Radius View</span>
+          <span class="mc-badge b-aerial">Context Map</span>
+        </div>
+        <div class="upload-zone" id="demo-map" onclick="triggerUpload('demo-map-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'demo-map-input')">
+          <input type="file" id="demo-map-input" accept="image/*" onchange="handleFile(this,'demo-map')">
+          <img id="demo-map-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+          <div class="upload-label">Demographics Radius Map</div>
+          <div class="upload-sub">1, 3, and 5-mile rings from subject site</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">Trade area demographics — 1, 3, and 5-mile radii from subject</span>
+          <span class="caption-swap" onclick="triggerUpload('demo-map-input')">↑ Replace</span>
+        </div>
+      </div>
+
+      <div class="media-card">
+        <div class="media-card-header">
+          <span class="mc-title">Context Map — 1-Mile Area / Gurnee Mills</span>
+          <span class="mc-badge b-aerial">Location</span>
+        </div>
+        <div class="upload-zone" id="context-map" onclick="triggerUpload('context-map-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'context-map-input')">
+          <input type="file" id="context-map-input" accept="image/*" onchange="handleFile(this,'context-map')">
+          <img id="context-map-img" alt="">
+          <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="upload-label">Location Context Map</div>
+          <div class="upload-sub">Gurnee Mills, major retail, expressway access</div>
+          <div class="upload-btn-hint">Click to upload</div>
+        </div>
+        <div class="media-caption">
+          <span class="caption-text">1 mile from Gurnee Mills · major expressway access · dense retail corridor</span>
+          <span class="caption-swap" onclick="triggerUpload('context-map-input')">↑ Replace</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-strip">
+      <div class="demo-card">
+        <div class="demo-radius">1-Mile Radius</div>
+        <div class="demo-row"><span class="demo-key">Population</span><span class="demo-val">6,730</span></div>
+        <div class="demo-row"><span class="demo-key">Median Age</span><span class="demo-val">40.2</span></div>
+        <div class="demo-row"><span class="demo-key">Avg. Household Income</span><span class="demo-val">$126,274</span></div>
+        <div class="demo-row"><span class="demo-key">Median Home Value</span><span class="demo-val">$332,759</span></div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-radius">3-Mile Radius</div>
+        <div class="demo-row"><span class="demo-key">Population</span><span class="demo-val">49,024</span></div>
+        <div class="demo-row"><span class="demo-key">Median Age</span><span class="demo-val">40.7</span></div>
+        <div class="demo-row"><span class="demo-key">Avg. Household Income</span><span class="demo-val">$119,905</span></div>
+        <div class="demo-row"><span class="demo-key">Median Home Value</span><span class="demo-val">$303,052</span></div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-radius">5-Mile Radius</div>
+        <div class="demo-row"><span class="demo-key">Population</span><span class="demo-val">124,461</span></div>
+        <div class="demo-row"><span class="demo-key">Median Age</span><span class="demo-val">39.8</span></div>
+        <div class="demo-row"><span class="demo-key">Avg. Household Income</span><span class="demo-val">$108,424</span></div>
+        <div class="demo-row"><span class="demo-key">Median Home Value</span><span class="demo-val">$286,297</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT FOOTER ══ -->
+  <div class="contact-footer">
+    <div class="cf-left">
+      <div class="cf-label">Exclusively Listed By</div>
+      <div class="cf-property">35980 US Route 45<br>Lindenhurst, IL</div>
+      <div class="cf-price">Asking Price: $1,600,000 · 4.33 Acres</div>
+    </div>
+    <div class="cf-contacts">
+      <div class="cf-person">
+        <div class="cf-name">Anne Dempsey</div>
+        <div class="cf-role">Executive Vice President</div>
+        <div class="cf-contact-item">+1 847 989 8359</div>
+        <div class="cf-contact-item">anne.dempsey@colliers.com</div>
+      </div>
+      <div class="cf-person">
+        <div class="cf-name">Kate Dempsey</div>
+        <div class="cf-role">Associate</div>
+        <div class="cf-contact-item">+1 847 989 4404</div>
+        <div class="cf-contact-item">kate.dempsey@colliers.com</div>
+      </div>
+    </div>
+    <div class="cf-logo">Colliers</div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  function triggerUpload(inputId) {
+    document.getElementById(inputId).click();
+  }
+
+  function handleFile(input, zoneId) {
+    if (!input.files || !input.files[0]) return;
+    const file = input.files[0];
+    const zone = document.getElementById(zoneId);
+    const img = document.getElementById(zoneId + '-img');
+    if (!img) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      img.src = e.target.result;
+      img.style.display = 'block';
+      zone.classList.add('has-image');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function dragOver(e, zone) {
+    e.preventDefault();
+    zone.classList.add('drag-over');
+  }
+
+  function dragLeave(zone) {
+    zone.classList.remove('drag-over');
+  }
+
+  function handleDrop(e, zone, inputId) {
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    const zoneId = zone.id;
+    const img = document.getElementById(zoneId + '-img');
+    if (!img) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      img.src = ev.target.result;
+      img.style.display = 'block';
+      zone.classList.add('has-image');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function embedVideo(zoneId, urlInputId, frameId) {
+    const url = document.getElementById(urlInputId).value.trim();
+    if (!url) return;
+    let embed = '';
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      const match = url.match(/(?:v=|youtu\.be\/)([^&?\/]+)/);
+      if (match) embed = 'https://www.youtube.com/embed/' + match[1] + '?autoplay=0';
+    } else if (url.includes('vimeo.com')) {
+      const match = url.match(/vimeo\.com\/(\d+)/);
+      if (match) embed = 'https://player.vimeo.com/video/' + match[1];
+    }
+    if (embed) {
+      const frame = document.getElementById(frameId);
+      frame.src = embed;
+      document.getElementById(zoneId).classList.add('has-video');
+    } else {
+      alert('Please enter a valid YouTube or Vimeo URL.');
+    }
+  }
+
+  function expandAll() {
+    document.querySelectorAll('.upload-zone').forEach(z => {
+      if (!z.classList.contains('has-image')) {
+        z.style.minHeight = '400px';
+      }
+    });
+  }
+</script>
+</body>
+</html>
