@@ -551,6 +551,126 @@
   .demo-key { color: var(--muted); }
   .demo-val { font-weight: 600; color: var(--navy); }
 
+  /* ═══ OUR COVERAGE ═══ */
+  .coverage-section {
+    background: var(--light);
+    padding: 80px 0 72px;
+    text-align: center;
+  }
+  .coverage-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .coverage-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    letter-spacing: 4px;
+    color: var(--navy);
+    line-height: 0.95;
+    margin-bottom: 14px;
+  }
+  .coverage-subline {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 48px;
+  }
+  .coverage-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 52px;
+  }
+  .coverage-brand-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .coverage-brand-img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.15);
+  }
+  .coverage-brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 6px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .coverage-brand-role {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    letter-spacing: 0.3px;
+  }
+  .coverage-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .coverage-divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .coverage-divider-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .coverage-grid {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .coverage-city {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .coverage-city-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .coverage-city-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+  }
+  .coverage-city-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
   /* ═══ CONTACT FOOTER ═══ */
   .contact-footer {
     background: var(--navy);
@@ -1546,6 +1666,67 @@
       </div>
     </div>
   </section>
+
+  <!-- ══ OUR COVERAGE ══ -->
+  <div class="coverage-section">
+
+    <div class="coverage-eyebrow">Serving Arizona &amp; Beyond</div>
+    <div class="coverage-headline">OUR COVERAGE</div>
+    <div class="coverage-subline">Cinematic production across the state — from desert cities to mountain towns</div>
+
+    <!-- Lamar Myers Brand Mark -->
+    <div class="coverage-brand">
+      <img
+        class="coverage-brand-img"
+        src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/lamar_myers_b.png"
+        alt="Lamar Myers"
+        onclick="openLightbox(this.src)"
+        title="Click to view full size"
+      >
+      <div class="coverage-brand-name">LAMAR MYERS</div>
+      <div class="coverage-brand-role">Director · Cinematographer · Creator</div>
+    </div>
+
+    <!-- Divider -->
+    <div class="coverage-divider">
+      <div class="coverage-divider-line"></div>
+      <div class="coverage-divider-label">Service Areas</div>
+      <div class="coverage-divider-line"></div>
+    </div>
+
+    <!-- City Logos Grid -->
+    <div class="coverage-grid">
+      <div class="coverage-city">
+        <img class="coverage-city-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/phoenix.png" alt="Phoenix" onclick="openLightbox(this.src)" title="Click to view full size">
+        <div class="coverage-city-name">Phoenix</div>
+      </div>
+      <div class="coverage-city">
+        <img class="coverage-city-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/scottsdale.png" alt="Scottsdale" onclick="openLightbox(this.src)" title="Click to view full size">
+        <div class="coverage-city-name">Scottsdale</div>
+      </div>
+      <div class="coverage-city">
+        <img class="coverage-city-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/tucson.png" alt="Tucson" onclick="openLightbox(this.src)" title="Click to view full size">
+        <div class="coverage-city-name">Tucson</div>
+      </div>
+      <div class="coverage-city">
+        <img class="coverage-city-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/flagstaff.png" alt="Flagstaff" onclick="openLightbox(this.src)" title="Click to view full size">
+        <div class="coverage-city-name">Flagstaff</div>
+      </div>
+      <div class="coverage-city">
+        <img class="coverage-city-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/prescott.png" alt="Prescott" onclick="openLightbox(this.src)" title="Click to view full size">
+        <div class="coverage-city-name">Prescott</div>
+      </div>
+      <div class="coverage-city">
+        <img class="coverage-city-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/sierra_vista.png" alt="Sierra Vista" onclick="openLightbox(this.src)" title="Click to view full size">
+        <div class="coverage-city-name">Sierra Vista</div>
+      </div>
+      <div class="coverage-city">
+        <img class="coverage-city-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/yuma.png" alt="Yuma" onclick="openLightbox(this.src)" title="Click to view full size">
+        <div class="coverage-city-name">Yuma</div>
+      </div>
+    </div>
+
+  </div>
 
   <!-- ══ CONTACT FOOTER ══ -->
   <div class="contact-footer">
