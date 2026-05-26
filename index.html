@@ -651,6 +651,141 @@
     .upload-zone { border-style: solid; min-height: 200px; }
     body { background: white; }
   }
+
+  /* ═══ LIGHTBOX ═══ */
+  #lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  #lightbox-overlay.active { display: flex; }
+  #lightbox-img {
+    max-width: 96vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    cursor: default;
+  }
+  #lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    color: white;
+    font-size: 38px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.8;
+    z-index: 10000;
+    background: none;
+    border: none;
+    font-family: sans-serif;
+  }
+  #lightbox-close:hover { opacity: 1; }
+
+  /* ═══ VIDEO MODAL ═══ */
+  #video-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+  #video-modal-overlay.active { display: flex; }
+  #video-modal-inner {
+    position: relative;
+    width: 96vw;
+    max-width: 1400px;
+    aspect-ratio: 16/9;
+  }
+  #video-modal-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+  }
+  #video-modal-close {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    color: white;
+    font-size: 38px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.8;
+    z-index: 10000;
+    background: none;
+    border: none;
+    font-family: sans-serif;
+  }
+  #video-modal-close:hover { opacity: 1; }
+
+  /* ═══ VIDEO POSTER ZONE ═══ */
+  .video-poster-zone {
+    position: relative;
+    min-height: 300px;
+    background: var(--navy);
+    cursor: pointer;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-poster-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  .video-poster-zone:hover .video-poster-img { opacity: 0.5; }
+  .video-play-btn {
+    position: relative;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(239,83,80,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .video-poster-zone:hover .video-play-btn {
+    transform: scale(1.1);
+    background: rgba(239,83,80,1);
+  }
+  .video-play-btn svg { width: 32px; height: 32px; margin-left: 4px; }
+  .video-poster-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 18px 14px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .vpl-title { font-size: 14px; font-weight: 600; color: white; }
+  .vpl-sub { font-size: 11px; color: rgba(255,255,255,0.6); font-family: 'DM Mono', monospace; }
+
+  /* ═══ CURSOR HINT ON IMAGE ZONES ═══ */
+  .upload-zone.has-image { cursor: zoom-in; }
 </style>
 </head>
 <body>
@@ -689,7 +824,7 @@
 
   <!-- TOOLBAR -->
   <div class="toolbar">
-    <span class="toolbar-label">📁 Developer View — Drop rendered images into each container below. Click any zone to upload, or drag &amp; drop.</span>
+    <span class="toolbar-label">🖼️ Click any image to view full size · Click video thumbnails to play · Use ↑ Replace to swap images</span>
     <button class="tbtn" onclick="window.print()">🖨 Print / Export PDF</button>
     <button class="tbtn primary" onclick="expandAll()">⛶ Expand All Slots</button>
   </div>
@@ -700,9 +835,9 @@
       <span class="hrh-title">Featured Aerial Render — Full Site Overview</span>
       <span class="hrh-badge">Hero Image</span>
     </div>
-    <div class="upload-zone hero-zone" id="hero-main" onclick="triggerUpload('hero-main-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'hero-main-input')">
+    <div class="upload-zone hero-zone has-image" id="hero-main" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/1_featured_aerial_render.png')">
       <input type="file" id="hero-main-input" accept="image/*,video/mp4,video/webm" onchange="handleFile(this,'hero-main')">
-      <img id="hero-main-img" alt="">
+      <img id="hero-main-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/1_featured_aerial_render.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/1_featured_aerial_render.png')">
       <div class="upload-icon">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
@@ -733,9 +868,9 @@
           <span class="mc-title">Existing Site — Aerial Overview</span>
           <span class="mc-badge b-aerial">Aerial</span>
         </div>
-        <div class="upload-zone wide" id="aerial-1" onclick="triggerUpload('aerial-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-1-input')">
+        <div class="upload-zone wide has-image" id="aerial-1" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/2_existing_site.png')">
           <input type="file" id="aerial-1-input" accept="image/*" onchange="handleFile(this,'aerial-1')">
-          <img id="aerial-1-img" alt="">
+          <img id="aerial-1-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/2_existing_site.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/2_existing_site.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
           <div class="upload-label">Aerial — Current Conditions</div>
           <div class="upload-sub">Straight-down nadir view, parcel outlined</div>
@@ -752,9 +887,9 @@
           <span class="mc-title">Car Wash Development — Aerial Render</span>
           <span class="mc-badge b-render">Rendered</span>
         </div>
-        <div class="upload-zone wide" id="aerial-2" onclick="triggerUpload('aerial-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-2-input')">
+        <div class="upload-zone wide has-image" id="aerial-2" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/3_car_wash_development.png')">
           <input type="file" id="aerial-2-input" accept="image/*" onchange="handleFile(this,'aerial-2')">
-          <img id="aerial-2-img" alt="">
+          <img id="aerial-2-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/3_car_wash_development.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/3_car_wash_development.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <div class="upload-label">Aerial — Lot 1 Car Wash Built Out</div>
           <div class="upload-sub">Proposed car wash on northern 1.64 acres</div>
@@ -771,9 +906,9 @@
           <span class="mc-title">Full Site Buildout — All 3 Lots Developed</span>
           <span class="mc-badge b-render">Full Render</span>
         </div>
-        <div class="upload-zone wide" id="aerial-3" onclick="triggerUpload('aerial-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-3-input')">
+        <div class="upload-zone wide has-image" id="aerial-3" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/4_full_site_buildout.png')">
           <input type="file" id="aerial-3-input" accept="image/*" onchange="handleFile(this,'aerial-3')">
-          <img id="aerial-3-img" alt="">
+          <img id="aerial-3-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/4_full_site_buildout.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/4_full_site_buildout.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
           <div class="upload-label">Aerial — Complete 3-Lot Development</div>
           <div class="upload-sub">Car wash + retail pad + gas station / QSR</div>
@@ -790,9 +925,9 @@
           <span class="mc-title">Oblique 45° Aerial — Northeast Angle</span>
           <span class="mc-badge b-aerial">Oblique</span>
         </div>
-        <div class="upload-zone wide" id="aerial-4" onclick="triggerUpload('aerial-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'aerial-4-input')">
+        <div class="upload-zone wide has-image" id="aerial-4" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/5_oblique_45_aerial.png')">
           <input type="file" id="aerial-4-input" accept="image/*" onchange="handleFile(this,'aerial-4')">
-          <img id="aerial-4-img" alt="">
+          <img id="aerial-4-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/5_oblique_45_aerial.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/5_oblique_45_aerial.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
           <div class="upload-label">Oblique Aerial — 45° Angle</div>
           <div class="upload-sub">Golden hour, looking southwest toward site</div>
@@ -824,9 +959,9 @@
           <span class="mc-title">Route 45 Approach — Heading South</span>
           <span class="mc-badge b-street">Street Level</span>
         </div>
-        <div class="upload-zone wide" id="street-1" onclick="triggerUpload('street-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-1-input')">
+        <div class="upload-zone wide has-image" id="street-1" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/6_route_45_approach.png')">
           <input type="file" id="street-1-input" accept="image/*" onchange="handleFile(this,'street-1')">
-          <img id="street-1-img" alt="">
+          <img id="street-1-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/6_route_45_approach.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/6_route_45_approach.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3"/><rect x="9" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="19" r="1"/><circle cx="20" cy="19" r="1"/></svg></div>
           <div class="upload-label">Driver View — US Route 45 South</div>
           <div class="upload-sub">Looking south, car wash on left at intersection</div>
@@ -843,9 +978,9 @@
           <span class="mc-title">Intersection Corner — Grand Ave &amp; Route 45</span>
           <span class="mc-badge b-street">Corner View</span>
         </div>
-        <div class="upload-zone wide" id="street-2" onclick="triggerUpload('street-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-2-input')">
+        <div class="upload-zone wide has-image" id="street-2" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/7_intersection_corner.png')">
           <input type="file" id="street-2-input" accept="image/*" onchange="handleFile(this,'street-2')">
-          <img id="street-2-img" alt="">
+          <img id="street-2-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/7_intersection_corner.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/7_intersection_corner.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
           <div class="upload-label">Corner — Stoplight Intersection</div>
           <div class="upload-sub">Standing at the NE corner, facing southwest</div>
@@ -866,9 +1001,9 @@
           <span class="mc-title">Grand Avenue Approach — Heading East</span>
           <span class="mc-badge b-street">Street Level</span>
         </div>
-        <div class="upload-zone" id="street-3" onclick="triggerUpload('street-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-3-input')">
+        <div class="upload-zone has-image" id="street-3" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/8_grand_avenue_approach.png')">
           <input type="file" id="street-3-input" accept="image/*" onchange="handleFile(this,'street-3')">
-          <img id="street-3-img" alt="">
+          <img id="street-3-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/8_grand_avenue_approach.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/8_grand_avenue_approach.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
           <div class="upload-label">Grand Ave — Heading East</div>
           <div class="upload-sub">18,900 VPD approach view</div>
@@ -885,9 +1020,9 @@
           <span class="mc-title">Entry Drive &amp; Pylon Sign — Close-Up</span>
           <span class="mc-badge b-render">Detail</span>
         </div>
-        <div class="upload-zone" id="street-4" onclick="triggerUpload('street-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'street-4-input')">
+        <div class="upload-zone has-image" id="street-4" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/9_entry_drive_&_pylon_sign.png')">
           <input type="file" id="street-4-input" accept="image/*" onchange="handleFile(this,'street-4')">
-          <img id="street-4-img" alt="">
+          <img id="street-4-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/9_entry_drive_&_pylon_sign.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/9_entry_drive_&_pylon_sign.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
           <div class="upload-label">Pylon Sign &amp; Entry Drive</div>
           <div class="upload-sub">Landscaped entry, signage detail</div>
@@ -919,9 +1054,9 @@
           <span class="mc-title">Car Wash — Daytime Architectural Hero</span>
           <span class="mc-badge b-render">Architectural</span>
         </div>
-        <div class="upload-zone tall" id="cw-1" onclick="triggerUpload('cw-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-1-input')">
+        <div class="upload-zone tall has-image" id="cw-1" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/10_car_wash_daytime.png')">
           <input type="file" id="cw-1-input" accept="image/*" onchange="handleFile(this,'cw-1')">
-          <img id="cw-1-img" alt="">
+          <img id="cw-1-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/10_car_wash_daytime.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/10_car_wash_daytime.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
           <div class="upload-label">Express Car Wash — Daytime Hero</div>
           <div class="upload-sub">Full facade, vacuum islands, entry arch · bright noon sun</div>
@@ -938,9 +1073,9 @@
           <span class="mc-title">Car Wash — Night Render (LED Lit)</span>
           <span class="mc-badge b-night">Night</span>
         </div>
-        <div class="upload-zone tall" id="cw-2" onclick="triggerUpload('cw-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-2-input')">
+        <div class="upload-zone tall has-image" id="cw-2" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/11_car_wash_night_render.png')">
           <input type="file" id="cw-2-input" accept="image/*" onchange="handleFile(this,'cw-2')">
-          <img id="cw-2-img" alt="">
+          <img id="cw-2-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/11_car_wash_night_render.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/11_car_wash_night_render.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
           <div class="upload-label">Car Wash — Night / LED Lit</div>
           <div class="upload-sub">Twilight, LED accent lighting, glowing tunnel</div>
@@ -961,9 +1096,9 @@
           <span class="mc-title">Gas Station + Car Wash Combo</span>
           <span class="mc-badge b-render">Approved Use</span>
         </div>
-        <div class="upload-zone" id="cw-3" onclick="triggerUpload('cw-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-3-input')">
+        <div class="upload-zone has-image" id="cw-3" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/12_gas_station_&_car_wash.png')">
           <input type="file" id="cw-3-input" accept="image/*" onchange="handleFile(this,'cw-3')">
-          <img id="cw-3-img" alt="">
+          <img id="cw-3-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/12_gas_station_&_car_wash.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/12_gas_station_&_car_wash.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
           <div class="upload-label">Gas Station + Car Wash Combo</div>
           <div class="upload-sub">Combined site — previously approved use by Lindenhurst</div>
@@ -980,9 +1115,9 @@
           <span class="mc-title">Interior Tunnel — Customer Experience</span>
           <span class="mc-badge b-interior">Interior</span>
         </div>
-        <div class="upload-zone" id="cw-4" onclick="triggerUpload('cw-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'cw-4-input')">
+        <div class="upload-zone has-image" id="cw-4" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/13_interior_tunnel.png')">
           <input type="file" id="cw-4-input" accept="image/*" onchange="handleFile(this,'cw-4')">
-          <img id="cw-4-img" alt="">
+          <img id="cw-4-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/13_interior_tunnel.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/13_interior_tunnel.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
           <div class="upload-label">Interior — Through the Tunnel</div>
           <div class="upload-sub">Customer POV inside the wash tunnel</div>
@@ -1014,21 +1149,19 @@
           <span class="mc-title">Aerial Fly-Through — Development Site</span>
           <span class="mc-badge b-video">Video</span>
         </div>
-        <div class="video-zone" id="video-1">
-          <div class="video-icon">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div class="video-poster-zone" onclick="openVideoModal('https://player.vimeo.com/video/1195703864?badge=0&autopause=0&player_id=0&app_id=58479&loop=1&autoplay=1')">
+          <img src="https://vumbnail.com/1195703864.jpg" alt="Aerial Fly-Through" class="video-poster-img" onerror="this.style.background='#0a1628';this.src=''">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="white"/></svg>
           </div>
-          <div class="video-label">Aerial Fly-Through</div>
-          <div class="video-sub">Animated drone path over the site</div>
-          <div class="video-input-wrapper">
-            <input type="text" id="video-1-url" placeholder="Paste YouTube / Vimeo URL here…">
-            <button class="video-embed-btn" onclick="embedVideo('video-1','video-1-url','video-1-frame')">▶ Embed Video</button>
+          <div class="video-poster-label">
+            <span class="vpl-title">Aerial Fly-Through</span>
+            <span class="vpl-sub">Click to play · Loops automatically</span>
           </div>
-          <iframe id="video-1-frame" allowfullscreen></iframe>
         </div>
         <div class="media-caption">
           <span class="caption-text">Aerial fly-through animation — site overview with proposed development</span>
-          <span class="caption-swap" onclick="document.getElementById('video-1-url').focus()">↑ Add URL</span>
+          <span class="caption-swap" onclick="openVideoModal('https://player.vimeo.com/video/1195703864?badge=0&autopause=0&player_id=0&app_id=58479&loop=1&autoplay=1')">▶ Play</span>
         </div>
       </div>
 
@@ -1037,21 +1170,19 @@
           <span class="mc-title">Car Wash Walkthrough — Virtual Tour</span>
           <span class="mc-badge b-video">Video</span>
         </div>
-        <div class="video-zone" id="video-2">
-          <div class="video-icon">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div class="video-poster-zone" onclick="openVideoModal('https://player.vimeo.com/video/1195703863?badge=0&autopause=0&player_id=0&app_id=58479&loop=1&autoplay=1')">
+          <img src="https://vumbnail.com/1195703863.jpg" alt="Car Wash Walkthrough" class="video-poster-img" onerror="this.style.background='#0a1628';this.src=''">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="white"/></svg>
           </div>
-          <div class="video-label">Virtual Walkthrough</div>
-          <div class="video-sub">3D walkthrough of proposed car wash</div>
-          <div class="video-input-wrapper">
-            <input type="text" id="video-2-url" placeholder="Paste YouTube / Vimeo URL here…">
-            <button class="video-embed-btn" onclick="embedVideo('video-2','video-2-url','video-2-frame')">▶ Embed Video</button>
+          <div class="video-poster-label">
+            <span class="vpl-title">Car Wash Walkthrough</span>
+            <span class="vpl-sub">Click to play · Loops automatically</span>
           </div>
-          <iframe id="video-2-frame" allowfullscreen></iframe>
         </div>
         <div class="media-caption">
           <span class="caption-text">3D virtual tour — car wash interior and exterior walkthrough</span>
-          <span class="caption-swap" onclick="document.getElementById('video-2-url').focus()">↑ Add URL</span>
+          <span class="caption-swap" onclick="openVideoModal('https://player.vimeo.com/video/1195703863?badge=0&autopause=0&player_id=0&app_id=58479&loop=1&autoplay=1')">▶ Play</span>
         </div>
       </div>
 
@@ -1075,9 +1206,9 @@
           <span class="mc-title">QSR / Drive-Through</span>
           <span class="mc-badge b-concept">Pad Site</span>
         </div>
-        <div class="upload-zone" id="alt-1" onclick="triggerUpload('alt-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-1-input')">
+        <div class="upload-zone has-image" id="alt-1" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/14_qsr_drive_through.png')">
           <input type="file" id="alt-1-input" accept="image/*" onchange="handleFile(this,'alt-1')">
-          <img id="alt-1-img" alt="">
+          <img id="alt-1-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/14_qsr_drive_through.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/14_qsr_drive_through.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 22"/><path d="M9.7 22H3.1L3.1 16h6.5"/><path d="M21.8 22H15l0-6h6.8"/><path d="M15 22v-6"/></svg></div>
           <div class="upload-label">Fast Food / QSR</div>
           <div class="upload-sub">Drive-through lane, Lot 2 or 3</div>
@@ -1094,9 +1225,9 @@
           <span class="mc-title">Retail Strip Center</span>
           <span class="mc-badge b-concept">Pad Site</span>
         </div>
-        <div class="upload-zone" id="alt-2" onclick="triggerUpload('alt-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-2-input')">
+        <div class="upload-zone has-image" id="alt-2" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/15_retail_strip_center.png')">
           <input type="file" id="alt-2-input" accept="image/*" onchange="handleFile(this,'alt-2')">
-          <img id="alt-2-img" alt="">
+          <img id="alt-2-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/15_retail_strip_center.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/15_retail_strip_center.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
           <div class="upload-label">Multi-Tenant Retail Strip</div>
           <div class="upload-sub">Inline shops, 6,000 sq ft</div>
@@ -1113,9 +1244,9 @@
           <span class="mc-title">Medical / Urgent Care</span>
           <span class="mc-badge b-concept">Pad Site</span>
         </div>
-        <div class="upload-zone" id="alt-3" onclick="triggerUpload('alt-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-3-input')">
+        <div class="upload-zone has-image" id="alt-3" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/16_medical_urgent_care.png')">
           <input type="file" id="alt-3-input" accept="image/*" onchange="handleFile(this,'alt-3')">
-          <img id="alt-3-img" alt="">
+          <img id="alt-3-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/16_medical_urgent_care.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/16_medical_urgent_care.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <div class="upload-label">Medical / Urgent Care Clinic</div>
           <div class="upload-sub">5,000–7,000 sq ft clinic pad</div>
@@ -1132,9 +1263,9 @@
           <span class="mc-title">Auto Parts Retail</span>
           <span class="mc-badge b-concept">Pad Site</span>
         </div>
-        <div class="upload-zone" id="alt-4" onclick="triggerUpload('alt-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-4-input')">
+        <div class="upload-zone has-image" id="alt-4" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/17_auto_parts_retail.png')">
           <input type="file" id="alt-4-input" accept="image/*" onchange="handleFile(this,'alt-4')">
-          <img id="alt-4-img" alt="">
+          <img id="alt-4-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/17_auto_parts_retail.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/17_auto_parts_retail.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M5.34 17.66l-1.41 1.41M20.49 12h-2M5.51 12h-2M19.07 19.07l-1.41-1.41M5.34 6.34L3.93 4.93M12 20.49v-2M12 5.51v-2"/></svg></div>
           <div class="upload-label">Auto Parts Retail</div>
           <div class="upload-sub">Synergistic with car wash use</div>
@@ -1151,9 +1282,9 @@
           <span class="mc-title">Convenience Store</span>
           <span class="mc-badge b-concept">Pad Site</span>
         </div>
-        <div class="upload-zone" id="alt-5" onclick="triggerUpload('alt-5-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-5-input')">
+        <div class="upload-zone has-image" id="alt-5" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/18_convenience_store.png')">
           <input type="file" id="alt-5-input" accept="image/*" onchange="handleFile(this,'alt-5')">
-          <img id="alt-5-img" alt="">
+          <img id="alt-5-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/18_convenience_store.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/18_convenience_store.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v2H4z"/><path d="M4 6h16l-2 14H6L4 6z"/></svg></div>
           <div class="upload-label">Convenience Store Standalone</div>
           <div class="upload-sub">3,000–4,500 sq ft C-store</div>
@@ -1170,9 +1301,9 @@
           <span class="mc-title">Self-Storage Facility</span>
           <span class="mc-badge b-concept">Pad Site</span>
         </div>
-        <div class="upload-zone" id="alt-6" onclick="triggerUpload('alt-6-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'alt-6-input')">
+        <div class="upload-zone has-image" id="alt-6" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/19_self_storage_facility.png')">
           <input type="file" id="alt-6-input" accept="image/*" onchange="handleFile(this,'alt-6')">
-          <img id="alt-6-img" alt="">
+          <img id="alt-6-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/19_self_storage_facility.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/19_self_storage_facility.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
           <div class="upload-label">Self-Storage Facility</div>
           <div class="upload-sub">2–3 story climate controlled</div>
@@ -1204,9 +1335,9 @@
           <span class="mc-title">Spring — Grand Opening Scene</span>
           <span class="mc-badge b-render">Spring</span>
         </div>
-        <div class="upload-zone" id="seas-1" onclick="triggerUpload('seas-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-1-input')">
+        <div class="upload-zone has-image" id="seas-1" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/20_spring.png')">
           <input type="file" id="seas-1-input" accept="image/*" onchange="handleFile(this,'seas-1')">
-          <img id="seas-1-img" alt="">
+          <img id="seas-1-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/20_spring.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/20_spring.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M12 12C12 7 7 2 3 5c4 0 9 7 9 7"/><path d="M12 12c0-5 5-10 9-7-4 0-9 7-9 7"/></svg></div>
           <div class="upload-label">Spring — Opening Day</div>
           <div class="upload-sub">Cherry blossoms, grand opening banner, queue</div>
@@ -1223,9 +1354,9 @@
           <span class="mc-title">Winter — Snow Scene</span>
           <span class="mc-badge b-night">Winter</span>
         </div>
-        <div class="upload-zone" id="seas-2" onclick="triggerUpload('seas-2-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-2-input')">
+        <div class="upload-zone has-image" id="seas-2" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/21_winter.png')">
           <input type="file" id="seas-2-input" accept="image/*" onchange="handleFile(this,'seas-2')">
-          <img id="seas-2-img" alt="">
+          <img id="seas-2-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/21_winter.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/21_winter.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 7l-5 5-5-5"/><path d="M17 17l-5-5-5 5"/></svg></div>
           <div class="upload-label">Winter — Snow &amp; Steam</div>
           <div class="upload-sub">Midwest winter, steam from tunnel exit, LED glow</div>
@@ -1242,9 +1373,9 @@
           <span class="mc-title">Sunrise — 7AM Golden Hour</span>
           <span class="mc-badge b-render">Sunrise</span>
         </div>
-        <div class="upload-zone" id="seas-3" onclick="triggerUpload('seas-3-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-3-input')">
+        <div class="upload-zone has-image" id="seas-3" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/22_sunrise.png')">
           <input type="file" id="seas-3-input" accept="image/*" onchange="handleFile(this,'seas-3')">
-          <img id="seas-3-img" alt="">
+          <img id="seas-3-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/22_sunrise.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/22_sunrise.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="8 6 12 2 16 6"/></svg></div>
           <div class="upload-label">Sunrise — Cinematic</div>
           <div class="upload-sub">Orange sky, commuter traffic, dewy landscape</div>
@@ -1261,9 +1392,9 @@
           <span class="mc-title">Busy Saturday — Full Queue</span>
           <span class="mc-badge b-street">Lifestyle</span>
         </div>
-        <div class="upload-zone" id="seas-4" onclick="triggerUpload('seas-4-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'seas-4-input')">
+        <div class="upload-zone has-image" id="seas-4" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/23_busy_saturday.png')">
           <input type="file" id="seas-4-input" accept="image/*" onchange="handleFile(this,'seas-4')">
-          <img id="seas-4-img" alt="">
+          <img id="seas-4-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/23_busy_saturday.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/23_busy_saturday.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
           <div class="upload-label">Busy Saturday — Peak Volume</div>
           <div class="upload-sub">12–15 car queue, families, peak operations</div>
@@ -1294,9 +1425,9 @@
           <span class="mc-title">Draft Site Plan — Full Document</span>
           <span class="mc-badge b-aerial">Site Plan</span>
         </div>
-        <div class="upload-zone tall" id="siteplan-1" onclick="triggerUpload('siteplan-1-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'siteplan-1-input')">
+        <div class="upload-zone tall has-image" id="siteplan-1" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/24_draft_site_plan.png')">
           <input type="file" id="siteplan-1-input" accept="image/*,.pdf" onchange="handleFile(this,'siteplan-1')">
-          <img id="siteplan-1-img" alt="">
+          <img id="siteplan-1-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/24_draft_site_plan.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/24_draft_site_plan.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
           <div class="upload-label">Upload Site Plan Image</div>
           <div class="upload-sub">High-res site plan · PDF or PNG · Scale 1" = 30'</div>
@@ -1357,9 +1488,9 @@
           <span class="mc-title">Demographics Map — Radius View</span>
           <span class="mc-badge b-aerial">Context Map</span>
         </div>
-        <div class="upload-zone" id="demo-map" onclick="triggerUpload('demo-map-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'demo-map-input')">
+        <div class="upload-zone has-image" id="demo-map" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/25_demographics_map.png')">
           <input type="file" id="demo-map-input" accept="image/*" onchange="handleFile(this,'demo-map')">
-          <img id="demo-map-img" alt="">
+          <img id="demo-map-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/25_demographics_map.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/25_demographics_map.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
           <div class="upload-label">Demographics Radius Map</div>
           <div class="upload-sub">1, 3, and 5-mile rings from subject site</div>
@@ -1376,9 +1507,9 @@
           <span class="mc-title">Context Map — 1-Mile Area / Gurnee Mills</span>
           <span class="mc-badge b-aerial">Location</span>
         </div>
-        <div class="upload-zone" id="context-map" onclick="triggerUpload('context-map-input')" ondragover="dragOver(event,this)" ondragleave="dragLeave(this)" ondrop="handleDrop(event,this,'context-map-input')">
+        <div class="upload-zone has-image" id="context-map" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/26_context_map.png')">
           <input type="file" id="context-map-input" accept="image/*" onchange="handleFile(this,'context-map')">
-          <img id="context-map-img" alt="">
+          <img id="context-map-img" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/26_context_map.png" alt="" style="display:block;cursor:zoom-in;" onclick="openLightbox('https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/35980/26_context_map.png')">
           <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="upload-label">Location Context Map</div>
           <div class="upload-sub">Gurnee Mills, major retail, expressway access</div>
@@ -1516,5 +1647,47 @@
     });
   }
 </script>
+
+<!-- LIGHTBOX -->
+<div id="lightbox-overlay" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="video-modal-overlay" onclick="closeVideoModal()">
+  <button id="video-modal-close" onclick="closeVideoModal()">×</button>
+  <div id="video-modal-inner" onclick="event.stopPropagation()">
+    <iframe id="video-modal-frame" allowfullscreen allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"></iframe>
+  </div>
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox-overlay').classList.remove('active');
+    document.getElementById('lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeLightbox(); closeVideoModal(); }
+  });
+
+  function openVideoModal(embedUrl) {
+    document.getElementById('video-modal-frame').src = embedUrl;
+    document.getElementById('video-modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideoModal() {
+    document.getElementById('video-modal-overlay').classList.remove('active');
+    document.getElementById('video-modal-frame').src = '';
+    document.body.style.overflow = '';
+  }
+</script>
+
 </body>
 </html>
